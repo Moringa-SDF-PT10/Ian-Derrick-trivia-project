@@ -1,0 +1,125 @@
+{
+    "response_code": 0,
+    "results": [
+    {
+    "type": "multiple",
+    "difficulty": "hard",
+    "category": "General Knowledge",
+    "question": "Who founded the Khan Academy?",
+    "correct_answer": "Sal Khan",
+    "incorrect_answers": [
+    "Ben Khan",
+    "Kitt Khan",
+    "Adel Khan"
+    ]
+    },
+    {
+    "type": "multiple",
+    "difficulty": "easy",
+    "category": "General Knowledge",
+    "question": "Which sign of the zodiac is represented by the Crab?",
+    "correct_answer": "Cancer",
+    "incorrect_answers": [
+    "Libra",
+    "Virgo",
+    "Sagittarius"
+    ]
+    },
+    {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "General Knowledge",
+    "question": "In 2013 how much money was lost by Nigerian scams?",
+    "correct_answer": "$12.7 Billion",
+    "incorrect_answers": [
+    "$95 Million",
+    "$956 Million",
+    "$2.7 Billion"
+    ]
+    },
+    {
+    "type": "multiple",
+    "difficulty": "hard",
+    "category": "General Knowledge",
+    "question": "Where is Apple Inc. headquartered?",
+    "correct_answer": "Cupertino, California",
+    "incorrect_answers": [
+    "Redwood City, California",
+    "Redmond, Washington",
+    "Santa Monica, CA"
+    ]
+    },
+    {
+    "type": "multiple",
+    "difficulty": "easy",
+    "category": "General Knowledge",
+    "question": "Who is the author of Jurassic Park?",
+    "correct_answer": "Michael Crichton",
+    "incorrect_answers": [
+    "Peter Benchley",
+    "Chuck Paluhniuk",
+    "Irvine Welsh"
+    ]
+    },
+    {
+    "type": "multiple",
+    "difficulty": "easy",
+    "category": "General Knowledge",
+    "question": "Which of the following is not an Ivy League University?",
+    "correct_answer": "Stanford",
+    "incorrect_answers": [
+    "University of Pennsylvania",
+    "Harvard",
+    "Princeton"
+    ]
+    },
+    {
+    "type": "multiple",
+    "difficulty": "easy",
+    "category": "General Knowledge",
+    "question": "Of the following months, which has the most amount of days?",
+    "correct_answer": "December",
+    "incorrect_answers": [
+    "April",
+    "September",
+    "November "
+    ]
+    },
+    {
+    "type": "multiple",
+    "difficulty": "easy",
+    "category": "General Knowledge",
+    "question": "In the video-game franchise Kingdom Hearts, the main protagonist, carries a weapon with what shape?",
+    "correct_answer": "Key",
+    "incorrect_answers": [
+    "Sword",
+    "Pen",
+    "Cellphone"
+    ]
+    },
+    {
+    "type": "multiple",
+    "difficulty": "hard",
+    "category": "General Knowledge",
+    "question": "Named after the mallow flower, mauve is a shade of what?",
+    "correct_answer": "Purple",
+    "incorrect_answers": [
+    "Red",
+    "Brown",
+    "Pink"
+    ]
+    },
+    {
+    "type": "multiple",
+    "difficulty": "hard",
+    "category": "General Knowledge",
+    "question": "The Swedish word &quot;Grunka&quot; means what in English?",
+    "correct_answer": "Thing",
+    "incorrect_answers": [
+    "People",
+    "Place",
+    "Pineapple"
+    ]
+    }
+    ]
+    }
