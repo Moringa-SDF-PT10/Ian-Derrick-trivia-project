@@ -5,7 +5,6 @@ let wrongAnswers = [];
 
 function startQuiz() {
   document.getElementById("start-screen").style.display = "none";
-  document.getElementById("additional-info").style.display = "none";
   document.getElementById("question-screen").style.display = "block";
 
   fetch("https://opentdb.com/api.php?amount=10&category=9&type=multiple")
@@ -39,29 +38,27 @@ function showQuestion() {
 
 function checkAnswer(selected, correct) {
   if (selected === correct) {
-    alert("Correct Answer!");
+    alert("✅ Correct!");
     score++;
   } else {
-    alert("Wrong Answer! The Correct answer is: " + correct);
+    alert("❌ Wrong! Correct answer: " + correct);
     wrongAnswers.push({
       question: decodeHTML(questions[currentQuestion].question),
       correct: correct
     });
-
   }
+
   currentQuestion++;
+
   if (currentQuestion < questions.length) {
     showQuestion();
   } else {
     showResult();
   }
-  
 }
-
 
 function showResult() {
   document.getElementById("question-screen").style.display = "none";
-  document.getElementById("additional-info").style.display = "none";
   document.getElementById("result-screen").style.display = "block";
 
   document.getElementById("score").innerText = score + " / " + questions.length;

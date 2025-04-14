@@ -35,16 +35,3 @@ button:hover {
   margin: 10px auto;
   width: 100%;
 }
-#review-list {
-  padding: 0;
-  text-align: left;
-}
-#question-screen {
-  display: none;
-}
-#result-screen {
-  display: none;
-}
-#start-screen {
-  display: block;
-}
