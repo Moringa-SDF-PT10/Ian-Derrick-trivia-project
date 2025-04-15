@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Trivia Quiz</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -9,14 +10,31 @@
  
   <div id="quiz-box">
     <h1>Trivia Quiz</h1>
-  <div id ="timer">
-    ⏱️ Time on this question: <span id="question-timer">0s</span> |
-  </div>
-     <div id="total-time">
-      ⏳ Total time: <span id="total-timer">0s</span>
-    </div> 
+    <div id="timer-container">
+      <p>
+        ⏱️ Time left on this question: <span id="question-timer">15s</span> 
+        <div>
+        ⌛ Total time: <span id="total-timer">0s</span>
+      </div>
+      </p>
+      <div class="intro animated">
+        <h2>🔍 10 Questions. 1 Goal. Test Your Knowledge!</h2>
+        <p>
+          You'll have <strong>15 seconds per question</strong>.<br>
+          Choose wisely—once you pick an answer, there's no going back!<br>
+          Can you beat the clock?
+        </p>
+        <p>
+          <strong>Ready to dive in?</strong><br>
+          Click the button below to start your quiz adventure!
+        </p>
+      </div>
+      <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+      </div>
+    </div>
     <div id="start-screen">
-      <button onclick="startQuiz()">Start Quiz</button>
+      <button onclick="startQuiz()" class="start-btn">Start Quiz</button>
     </div>
 
     <div id="question-screen" style="display: none;">

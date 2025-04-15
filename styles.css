@@ -40,7 +40,7 @@ button {
 }
 
 button:hover {
-  background-color: #005fcc;
+  background-color: #34b614;
 }
 
 #answers button {
@@ -53,3 +53,72 @@ button:hover {
   margin-top: 20px;
   
 }
+#timer-container {
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+}
+
+#progress-bar-container {
+  width: 100%;
+  background-color: #ddd;
+  height: 15px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 100%;
+  background-color: #4CAF50;
+  transition: width 1s linear;
+}
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Apply Animation */
+.intro.animated {
+  animation: fadeIn 1s ease-out forwards;
+  text-align: center;
+  padding: 20px;
+}
+
+.start-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  margin-top: 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  animation: bounceIn 1.2s ease forwards;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.start-btn:hover {
+  background-color: #45a049;
+}
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+

@@ -3,10 +3,12 @@ let currentQuestion = 0;
 let score = 0;
 let wrongAnswers = [];
 
-let questionTimer = 0;
-let totalTimer = 0;
+let questionTimeLimit = 15;
+let questionTimeLeft = questionTimeLimit;
 let questionInterval;
 let totalInterval;
+let questionTimerRunning = false;
+
 
 
 function startQuiz() {
@@ -31,13 +33,23 @@ function startQuiz() {
 
 
 function showQuestion() {
-  clearInterval(questionInterval); // Stop any previous timer
-  questionTimer = 0;
-  document.getElementById("total-time").style.display = "none";
-  document.getElementById("question-timer").innerText = "0s";
+  clearInterval(questionInterval);
+  questionTimeLeft = questionTimeLimit;
+  updateQuestionTimer();
+
   questionInterval = setInterval(() => {
-    questionTimer++;
-    document.getElementById("question-timer").innerText = questionTimer + "s";
+    questionTimeLeft--;
+    updateQuestionTimer();
+    if (questionTimeLeft <= 0) {
+      clearInterval(questionInterval);
+      alert("⏰ Time's up!");
+      wrongAnswers.push({
+        question: decodeHTML(questions[currentQuestion].question),
+        correct: decodeHTML(questions[currentQuestion].correct_answer)
+      });
+      currentQuestion++;
+      currentQuestion < questions.length ? showQuestion() : showResult();
+    }
   }, 1000);
 
   let questionData = questions[currentQuestion];
@@ -55,10 +67,14 @@ function showQuestion() {
   answers.forEach(answer => {
     let btn = document.createElement("button");
     btn.innerText = answer;
-    btn.onclick = () => checkAnswer(answer, correct);
+    btn.onclick = () => {
+      clearInterval(questionInterval);
+      checkAnswer(answer, correct);
+    };
     answersDiv.appendChild(btn);
   });
 }
+
 
 
 function checkAnswer(selected, correct) {
@@ -66,7 +82,7 @@ function checkAnswer(selected, correct) {
     alert("✅ Correct!");
     score++;
   } else {
-    alert("❌ Wrong! Correct answer is: " + correct);
+    alert("❌ Wrong! Correct answer: " + correct);
     wrongAnswers.push({
       question: decodeHTML(questions[currentQuestion].question),
       correct: correct
@@ -78,15 +94,14 @@ function checkAnswer(selected, correct) {
   if (currentQuestion < questions.length) {
     showQuestion();
   } else {
-    showResult();
+    showResult(); // <- This ensures results display
   }
 }
 
+
 function showResult() {
-  document.getElementById("total-time").style.display = "block";
-  document.getElementById("timer").style.dispaly = "none";
-  clearInterval(totalInterval);
   clearInterval(questionInterval);
+  clearInterval(totalInterval);
 
   document.getElementById("question-screen").style.display = "none";
   document.getElementById("result-screen").style.display = "block";
@@ -98,19 +113,32 @@ function showResult() {
 
   wrongAnswers.forEach(item => {
     let li = document.createElement("li");
-    li.innerText = `Q: ${item.question} | ✅ ${item.correct}`;
+    li.innerText = ` Q: ${item.question} | ✅ Correct: ${item.correct}`;
     list.appendChild(li);
   });
 }
 
 
 function restartQuiz() {
+  clearInterval(questionInterval);
+  clearInterval(totalInterval);
+
+  // Reset all variables
   currentQuestion = 0;
   score = 0;
+  totalTimer = 0;
   wrongAnswers = [];
+
+  // Reset screens
   document.getElementById("result-screen").style.display = "none";
-  startQuiz();
+  document.getElementById("start-screen").style.display = "block";
+
+  // Reset progress bar and timers
+  document.getElementById("progress-bar").style.width = "100%";
+  document.getElementById("question-timer").innerText = "0s";
+  document.getElementById("total-timer").innerText = "0s";
 }
+
 
 // Helper: Randomize order of answers
 function shuffle(array) {
@@ -123,3 +151,9 @@ function decodeHTML(html) {
   txt.innerHTML = html;
   return txt.value;
 }
+function updateQuestionTimer() {
+  document.getElementById("question-timer").innerText = `${questionTimeLeft}s`;
+  const percent = (questionTimeLeft / questionTimeLimit) * 100;
+  document.getElementById("progress-bar").style.width = `${percent}%`;
+}
+
