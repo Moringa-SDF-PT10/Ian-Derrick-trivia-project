@@ -3,9 +3,23 @@ let currentQuestion = 0;
 let score = 0;
 let wrongAnswers = [];
 
+let questionTimer = 0;
+let totalTimer = 0;
+let questionInterval;
+let totalInterval;
+
+
 function startQuiz() {
   document.getElementById("start-screen").style.display = "none";
   document.getElementById("question-screen").style.display = "block";
+
+  totalTimer = 0;
+
+  document.getElementById("total-timer").innerText = "0s";
+  totalInterval = setInterval(() => {
+    totalTimer++;
+    document.getElementById("total-timer").innerText = totalTimer + "s";
+  }, 1000);
 
   fetch("https://opentdb.com/api.php?amount=10&category=9&type=multiple")
     .then(response => response.json())
@@ -15,7 +29,17 @@ function startQuiz() {
     });
 }
 
+
 function showQuestion() {
+  clearInterval(questionInterval); // Stop any previous timer
+  questionTimer = 0;
+  document.getElementById("total-time").style.display = "none";
+  document.getElementById("question-timer").innerText = "0s";
+  questionInterval = setInterval(() => {
+    questionTimer++;
+    document.getElementById("question-timer").innerText = questionTimer + "s";
+  }, 1000);
+
   let questionData = questions[currentQuestion];
   let questionText = decodeHTML(questionData.question);
   let correct = decodeHTML(questionData.correct_answer);
@@ -36,12 +60,13 @@ function showQuestion() {
   });
 }
 
+
 function checkAnswer(selected, correct) {
   if (selected === correct) {
     alert("✅ Correct!");
     score++;
   } else {
-    alert("❌ Wrong! Correct answer: " + correct);
+    alert("❌ Wrong! Correct answer is: " + correct);
     wrongAnswers.push({
       question: decodeHTML(questions[currentQuestion].question),
       correct: correct
@@ -58,6 +83,11 @@ function checkAnswer(selected, correct) {
 }
 
 function showResult() {
+  document.getElementById("total-time").style.display = "block";
+  document.getElementById("timer").style.dispaly = "none";
+  clearInterval(totalInterval);
+  clearInterval(questionInterval);
+
   document.getElementById("question-screen").style.display = "none";
   document.getElementById("result-screen").style.display = "block";
 
@@ -72,6 +102,7 @@ function showResult() {
     list.appendChild(li);
   });
 }
+
 
 function restartQuiz() {
   currentQuestion = 0;
