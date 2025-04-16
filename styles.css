@@ -1,24 +1,52 @@
 body {
   font-family: Arial, sans-serif;
-  background-image: url("assets/quiz.png");
+  background-image: url("assets/screenshot2.png");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  animation: fadeIn 1s ease forwards;
 }
-#image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
+#quiz-box{
+  background-attachment: fixed;
 }
-#image-container img {
-  max-width: 100%;
-  max-height: 300px;
-  border-radius: 10px;
+#intro-animated {
+  background-color: #f9f9ff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+  max-width: 600px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
 }
+
+#intro-animated h2 {
+  color: #4CAF50;
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+#intro-animated p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
 #quiz-box {
   background-color: white;
@@ -85,15 +113,8 @@ button:hover {
   100% { transform: scale(1); }
 }
 
-/* Apply Animation */
-.intro.animated {
-  animation: fadeIn 1s ease-out forwards;
-  text-align: center;
-  padding: 20px;
-}
-
 .start-btn {
-  background-color: #4CAF50;
+  background-color: #2607b3;
   color: white;
   padding: 12px 24px;
   margin-top: 20px;
@@ -109,6 +130,13 @@ button:hover {
 .start-btn:hover {
   background-color: #45a049;
 }
+#result-message {
+  font-size: 24px;
+  margin-top: 20px;
+  color: #cc1c1c;
+  animation: alternate-reverse 1s infinite;
+}
+
 /* Animation Keyframes */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
@@ -119,6 +147,16 @@ button:hover {
   0% { transform: scale(0.8); opacity: 0; }
   60% { transform: scale(1.1); opacity: 1; }
   100% { transform: scale(1); }
+}
+.restart-message {
+  font-size: 1.1rem;
+  background-color: #f0f8ff;
+  padding: 16px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  animation: fadeIn 1s ease-out;
 }
 
 
