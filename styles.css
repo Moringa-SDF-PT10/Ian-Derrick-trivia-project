@@ -46,7 +46,14 @@ body {
   }
 }
 
-
+#question-screen {
+  background-color: #f9f9ff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
 
 #quiz-box {
   background-color: rgb(235, 239, 240);
@@ -69,6 +76,10 @@ button {
 
 button:hover {
   background-color: #af0a99;
+}
+
+#question-screen {
+  animation: forwards ;
 }
 
 #answers button {
