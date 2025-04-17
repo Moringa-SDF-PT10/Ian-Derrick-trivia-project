@@ -48,7 +48,7 @@ function showQuestion() {
     updateQuestionTimer();
     if (questionTimeLeft <= 0) {
       clearInterval(questionInterval);
-      alert(" Time's up!");
+      alert("Sorry time's up!");
       wrongAnswers.push({
         question: decodeHTML(questions[currentQuestion].question),
         correct: decodeHTML(questions[currentQuestion].correct_answer)
