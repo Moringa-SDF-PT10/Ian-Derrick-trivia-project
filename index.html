@@ -22,7 +22,7 @@
       <div id="intro-animated" >
         <h2> 10 Questions. 1 Goal. Test Your Knowledge!</h2>
         <p>
-          You'll have <strong>15 seconds per question</strong>.<br>
+          You'll have <strong>20 seconds per question</strong>.<br>
           Choose wisely—once you pick an answer, there's no going back!<br>
           Can you beat the clock?
         </p>
@@ -40,6 +40,9 @@
     <div id="question-screen" style="display: none;">
       <p id="question-text"></p>
       <div id="answers"></div>
+      <div id="next" style="display: none; margin-top: 10px;">
+        <button onclick="nextQuestion()">Next</button>
+      </div> 
     </div>
 
     <div id="result-screen" style="display: none;">
@@ -48,7 +51,9 @@
       <h3>Correct Answers You Missed:</h3>
       <ul id="review-list"></ul>
       <button onclick="restartQuiz()">Restart Quiz</button>
+
     </div>
+
     <div  id="restart page" style="display: none;" >
       <p class="restart-message">
         <strong>🔥 Let's do this again!</strong><br>
@@ -56,6 +61,7 @@
         Hit restart and give it your all.
       </p>
       <button onclick="startQuiz()" class="start-btn">Restart Quiz</button>
+
     </div>
   </div>
 

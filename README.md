@@ -46,9 +46,9 @@ A simple and interactive web-based trivia quiz built using **HTML**, **CSS**, an
 
 ## Acknowledgements
 - Questions powered by `Open Trivia DB`
-- Icons from EmojiOne / Emojis
+- Icons from EmojiOne / Emojis 
 ---
 
-## Author
-- Ian Derrick
+## Author 
+- Ian Derrick 
 - Email: derrickian341@gmail.com

@@ -81,12 +81,39 @@ button:hover {
 #question-screen {
   animation: forwards ;
 }
+.answer-btn {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  opacity: 0.8;
+  border-radius: 8px;
+  background-color: #e215e2;
+}
+
+.answer-btn:hover {
+  background-color: #3a13af;
+}
+
 
 #answers button {
   display: block;
   margin: 10px auto;
   width: 100%;
 }
+
+#result-screen {
+  background-color: #f9f9ff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+}
+
 #review-list {
  text-align: left;
   margin-top: 20px;
@@ -169,5 +196,4 @@ button:hover {
   text-align: center;
   animation: fadeIn 1s ease-out;
 }
-
 

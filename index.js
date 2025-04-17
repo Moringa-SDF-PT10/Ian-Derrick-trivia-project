@@ -3,7 +3,7 @@ let currentQuestion = 0;
 let score = 0;
 let wrongAnswers = [];
 
-let questionTimeLimit = 15;
+let questionTimeLimit = 20;
 let questionTimeLeft = questionTimeLimit;
 let questionInterval;
 let totalInterval;
@@ -47,14 +47,11 @@ function showQuestion() {
     questionTimeLeft--;
     updateQuestionTimer();
     if (questionTimeLeft <= 0) {
+      document.getElementById("next").style.display = "block";
+      
       clearInterval(questionInterval);
-      alert("Sorry time's up!");
-      wrongAnswers.push({
-        question: decodeHTML(questions[currentQuestion].question),
-        correct: decodeHTML(questions[currentQuestion].correct_answer)
-      });
-      currentQuestion++;
-      currentQuestion < questions.length ? showQuestion() : showResult();
+      handleTimeout();
+      
     }
   }, 1000);
 
@@ -69,41 +66,60 @@ function showQuestion() {
 
   let answersDiv = document.getElementById("answers");
   answersDiv.innerHTML = "";
+ document.getElementById("next").style.display = "none";
 
   answers.forEach(answer => {
     let btn = document.createElement("button");
     btn.innerText = answer;
-    btn.onclick = () => {
-      clearInterval(questionInterval);
-      checkAnswer(answer, correct);
-    };
+    btn.classList.add("answer-btn");
+    btn.onclick = () => checkAnswer(btn, answer, correct);
     answersDiv.appendChild(btn);
   });
 }
 
+function checkAnswer(selectedBtn, selectedAnswer, correctAnswer) {
+  clearInterval(questionInterval);
+  const allButtons = document.querySelectorAll(".answer-btn");
+  allButtons.forEach(btn => btn.disabled = true);
 
-
-function checkAnswer(selected, correct) {
-
-  if (selected === correct) {
-    alert("✅ Correct!");
+  if (selectedAnswer === correctAnswer) {
+     selectedBtn.style.backgroundColor = "green";
     score++;
   } else {
-    alert("❌ Wrong! Correct answer: " + correct);
-    wrongAnswers.push({
+    selectedBtn.style.backgroundColor = "red";
+    allButtons.forEach(btn => {
+      if (btn.innerText === correctAnswer) {
+        btn.style.backgroundColor = "green";
+      }
+    });
+   wrongAnswers.push({
       question: decodeHTML(questions[currentQuestion].question),
-      correct: correct
+      correct: correctAnswer
     });
   }
+  document.getElementById("next").style.display = "block";
+}
 
+function handleTimeout() {
+  const correctAnswer = decodeHTML(questions[currentQuestion].correct_answer);
+  const allButtons = document.querySelectorAll(".answer-btn");
+  allButtons.forEach(btn => btn.disabled = true);
+  if (btn.innerText === correctAnswer) {
+    btn.style.backgroundColor = "green";
+
+  }
+
+}
+
+function nextQuestion() {
   currentQuestion++;
-
   if (currentQuestion < questions.length) {
     showQuestion();
   } else {
     showResult(); // <- This ensures results display
   }
 }
+
 
 
 function showResult() {
@@ -121,19 +137,24 @@ function showResult() {
   let list = document.getElementById("review-list");
   list.innerHTML = "";
 
-  wrongAnswers.forEach(item => {
+  wrongAnswers.forEach((item, index) => {
     let li = document.createElement("li");
-    li.innerText = ` Q: ${item.question} | ✅ Correct answer is: ${item.correct}`;
+    li.innerHTML = `
+      <div style="margin-bottom: 2px; padding: 1px;">
+        <strong>Question:</strong> ${item.question}<br>
+        <span style="color: #007BFF;">✅ Correct Answer:</span> <em>${item.correct}</em>
+      </div>
+    `;
     list.appendChild(li);
   });
   if (score >= questions.length / 1.25 ) {
-    document.getElementById("result-message").innerText = "Congratulations! You are truly a genius.";
+    document.getElementById("result-message").innerText = "🎉 Excellent! You're a quiz master!";
   }
   else if (score >= questions.length / 2) {
-    document.getElementById("result-message").innerText = "Good job! You have a solid knowledge.";
+    document.getElementById("result-message").innerText = "👍 Not bad! You got solid knowledge.";
   }
   else {
-    document.getElementById("result-message").innerText = "Don't be discouraged! You can always try again.";
+    document.getElementById("result-message").innerText = "💪 Don't be discouraged! You can always try again.";
   }
 }
 
