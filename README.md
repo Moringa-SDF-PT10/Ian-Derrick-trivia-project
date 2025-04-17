@@ -17,7 +17,9 @@ A simple and interactive web-based trivia quiz built using **HTML**, **CSS**, an
 
 ## 📷 Preview
 
-![screenshot](./assets/screenshot.png) <!-- Add a screenshot if you like -->
+![screensh![alt text](<assets/Screenshot 2025-04-17 132316.png>)ot]
+
+ <!-- Add a screenshot if you like -->
 
 ---
 
@@ -50,5 +52,5 @@ git clone  git@github.com:Moringa-SDF-PT10/Ian-Derrick-trivia-project.git
 ---
 
 ## Author
-`Ian Derrick`
-`📧 derrickian341@gmail.com`
+Ian Derrick
+Email: derrickian341@gmail.com
