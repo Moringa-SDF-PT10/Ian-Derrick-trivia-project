@@ -25,7 +25,7 @@ A simple and interactive web-based trivia quiz built using **HTML**, **CSS**, an
 
 ##  How to Use
 
-1. **just click this link and enjoy the quiz**
+- **just click this link and enjoy the quiz**
 
 
  [(https://moringa-sdf-pt10.github.io/Ian-Derrick-trivia-project/)]
@@ -53,5 +53,5 @@ A simple and interactive web-based trivia quiz built using **HTML**, **CSS**, an
 ---
 
 ## Author
-Ian Derrick
-Email: derrickian341@gmail.com
+- Ian Derrick
+- Email: derrickian341@gmail.com
