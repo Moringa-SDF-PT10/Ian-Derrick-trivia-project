@@ -28,7 +28,7 @@ A simple and interactive web-based trivia quiz built using **HTML**, **CSS**, an
 1. **just click this link and enjoy the quiz**
 
 ```bash
- [https://moringa-sdf-pt10.github.io/Ian-Derrick-trivia-project/]
+ [(https://moringa-sdf-pt10.github.io/Ian-Derrick-trivia-project/)]
 ```
 
 ---
