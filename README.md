@@ -21,19 +21,34 @@ A simple and interactive web-based trivia quiz built using **HTML**, **CSS**, an
 
 ---
 
-## 🛠️ How to Use
+##  How to Use
 
-1. **Clone or Download the Repository**
+1. **just click this link and enjoy the quiz**
 
 ```bash
 git clone  git@github.com:Moringa-SDF-PT10/Ian-Derrick-trivia-project.git
+```
 
-
+---
+## Project Structure
 
 📁 trivia-quiz
 │
-├── 📄 index.html          # Main HTML structure
-├── 📄 styles.css           # Styling and animations
-├── 📄 index.js           # Quiz logic & functionality
-└── 📄 README.md           # Project documentation
+├── 📄 index.html          
+├── 📄 styles.css 
+├── 📄 db.json         
+├── 📄 index.js
+├── 📄 assets          
+└── 📄 README.md 
 
+
+---
+
+## Acknowledgements
+- Questions powered by `Open Trivia DB`
+- Icons from EmojiOne / Emojis
+---
+
+## Author
+`Ian Derrick`
+`📧 derrickian341@gmail.com`
