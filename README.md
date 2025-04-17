@@ -17,7 +17,7 @@ A simple and interactive web-based trivia quiz built using **HTML**, **CSS**, an
 
 ## 📷 Preview
 
-[alt text](<assets/Screenshot 2025-04-17 132316.png>)
+[alt text][(<assets/Screenshot 2025-04-17 132316.png>)]
 
  <!-- Add a screenshot if you like -->
 
