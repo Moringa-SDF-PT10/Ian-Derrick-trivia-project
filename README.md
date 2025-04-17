@@ -17,7 +17,7 @@ A simple and interactive web-based trivia quiz built using **HTML**, **CSS**, an
 
 ## 📷 Preview
 
-![screensh![alt text](<assets/Screenshot 2025-04-17 132316.png>)ot]
+[alt text](<assets/Screenshot 2025-04-17 132316.png>)
 
  <!-- Add a screenshot if you like -->
 
@@ -28,21 +28,22 @@ A simple and interactive web-based trivia quiz built using **HTML**, **CSS**, an
 1. **just click this link and enjoy the quiz**
 
 ```bash
-git clone  git@github.com:Moringa-SDF-PT10/Ian-Derrick-trivia-project.git
+ [https://moringa-sdf-pt10.github.io/Ian-Derrick-trivia-project/]
 ```
 
 ---
-## Project Structure
+## 🎮 How to Play
+- Click the Start Quiz button on the homepage.
 
-📁 trivia-quiz
-│
-├── 📄 index.html          
-├── 📄 styles.css 
-├── 📄 db.json         
-├── 📄 index.js
-├── 📄 assets          
-└── 📄 README.md 
+- You’ll be shown one question at a time, with 4 answer options.
 
+- You have 15 seconds to answer each question.
+
+- Click on an answer — you'll get immediate feedback.
+
+- At the end, view your score and any answers you missed.
+
+- Want to try again? Click Restart Quiz for new questions!
 
 ---
 
