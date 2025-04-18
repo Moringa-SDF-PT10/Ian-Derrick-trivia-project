@@ -9,46 +9,48 @@
 <body>
  
   <div id="quiz-box">
-    
+    <h3>Trivia Quiz</h3>
     <div id="timer-container" style="display: none;">
       <p>
        <strong>Total  Time Spent: <span id="total-timer">0s</span></strong>
       </p>
-    </div>
-      <div id="progress-bar-container" style="display: none;">
+        </div>
+       <div id="progress-bar-container" style="display: none;">
         <div id="progress-bar"></div>
-      </div>
+       </div>
       </p>
-      <div id="intro-animated" >
-        <h3>Welcome to the Quiz Master Challenge!</h3>
-        <p>
-          Ready to test your knowledge?
-           🌟 Choose your difficulty level,
-            select the number of questions, and let's see 
-            if you can become the ultimate quiz master!
-        </p>
-        <p>
-          <strong>Ready to dive in?</strong><br>
-          Click the button below to start your quiz adventure!
-        </p>
+           <div id="intro-animated" >
+               <h3>Welcome to the Quiz Master Challenge!</h3>
+               <p>
+                 Ready to test your knowledge?
+                 🌟 Choose your difficulty level,
+                 select the number of questions, and let's see 
+                 if you can become the ultimate quiz master!
+               </p>
+                 <p>
+                    <strong>Ready to dive in?</strong><br>
+                    Click the button below to start your quiz adventure!
+                  </p>
      
-        <label for="question-count">Number of Questions:</label>
-        <input type="number" id="question-count" min="1" max="50" value="10"><br><br>
-
-    <div id="start-screen">
+            <label for="question-count">Number of Questions:</label>
+            <input type="number" id="question-count" min="1" max="50" value="10"><br><br>
       
 
-  <label for="difficulty">Difficulty:</label>
-  <select id="difficulty">
-    <option value="">Any</option>
-    <option value="easy">Easy</option>
-    <option value="medium">Medium</option>
-    <option value="hard">Hard</option>
-  </select><br><br>
-      <button onclick="startQuiz()" class="start-btn">Start Quiz</button>
-    </div>
-  </div>
+            <div id="start-screen">
+             <label for="difficulty">Difficulty:</label>
+              <select id="difficulty">
+              <option value="">Any</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+              </select><br><br>
+              <button onclick="startQuiz()" class="start-btn">Start Quiz</button>
+            </div>
+         </div>
+
     <div id="question-screen" style="display: none;">
+      <div id="question-counter" class="question-counter">
+      </div>
       <p id="question-text"></p>
       <div id="answers"></div>
       <div id="next" style="display: none; margin-top: 10px;">

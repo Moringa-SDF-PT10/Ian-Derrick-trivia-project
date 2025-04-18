@@ -65,6 +65,8 @@ function showQuestion() {
     }
   }, 1000);
 
+  document.getElementById("question-counter").innerText = `Question ${currentQuestion + 1} of ${questions.length}`;
+
   let questionData = questions[currentQuestion];
   let questionText = decodeHTML(questionData.question);
   let correct = decodeHTML(questionData.correct_answer);
@@ -104,7 +106,8 @@ function checkAnswer(selectedBtn, selectedAnswer, correctAnswer) {
     });
    wrongAnswers.push({
       question: decodeHTML(questions[currentQuestion].question),
-      correct: correctAnswer
+      correct: correctAnswer,
+      index: currentQuestion
     });
   }
   document.getElementById("next").style.display = "block";
@@ -151,7 +154,7 @@ function showResult() {
     let li = document.createElement("li");
     li.innerHTML = `
       <div style="margin-bottom: 2px; padding: 1px; font-size: 14px;">
-        <strong>Question:</strong> ${item.question}<br>
+        <strong>Question ${item.index + 1}:</strong> ${item.question}<br>
         <span style="color: #007BFF;">✅ Correct Answer:</span> <em>${item.correct}</em>
       </div>
     `;
