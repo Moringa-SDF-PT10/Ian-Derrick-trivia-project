@@ -9,7 +9,7 @@
 <body>
  
   <div id="quiz-box">
-    <h1>Trivia Quiz</h1>
+    
     <div id="timer-container" style="display: none;">
       <p>
        <strong>Total  Time Spent: <span id="total-timer">0s</span></strong>
@@ -20,23 +20,34 @@
       </div>
       </p>
       <div id="intro-animated" >
-        <h2> 10 Questions. 1 Goal. Test Your Knowledge!</h2>
+        <h3>Welcome to the Quiz Master Challenge!</h3>
         <p>
-          You'll have <strong>20 seconds per question</strong>.<br>
-          Choose wisely—once you pick an answer, there's no going back!<br>
-          Can you beat the clock?
+          Ready to test your knowledge?
+           🌟 Choose your difficulty level,
+            select the number of questions, and let's see 
+            if you can become the ultimate quiz master!
         </p>
         <p>
           <strong>Ready to dive in?</strong><br>
           Click the button below to start your quiz adventure!
         </p>
-      </div>
-      
-    
+     
+        <label for="question-count">Number of Questions:</label>
+        <input type="number" id="question-count" min="1" max="50" value="10"><br><br>
+
     <div id="start-screen">
+      
+
+  <label for="difficulty">Difficulty:</label>
+  <select id="difficulty">
+    <option value="">Any</option>
+    <option value="easy">Easy</option>
+    <option value="medium">Medium</option>
+    <option value="hard">Hard</option>
+  </select><br><br>
       <button onclick="startQuiz()" class="start-btn">Start Quiz</button>
     </div>
-
+  </div>
     <div id="question-screen" style="display: none;">
       <p id="question-text"></p>
       <div id="answers"></div>
@@ -48,20 +59,14 @@
     <div id="result-screen" style="display: none;">
       <h2>Your Score: <span id="score"></span></h2>
       <p id="result-message"></p>
-      <h3>Correct Answers You Missed:</h3>
+      <h4>Answers You Missed:</h4>
       <ul id="review-list"></ul>
       <button onclick="restartQuiz()">Restart Quiz</button>
+      <button onclick="goToHomePage()">Go to Home Page</button>
 
     </div>
 
-    <div  id="restart page" style="display: none;" >
-      <p class="restart-message">
-        <strong>🔥 Let's do this again!</strong><br>
-        Fresh questions, new chance to prove your brainpower!<br>
-        Hit restart and give it your all.
-      </p>
-      <button onclick="startQuiz()" class="start-btn">Restart Quiz</button>
-
+    <div  id="restart-page" style="display: none;" >
     </div>
   </div>
 

@@ -3,6 +3,7 @@ body {
   background-image: url("assets/screenshot2.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: local;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +11,7 @@ body {
   animation: fadeIn 1s ease forwards;
 }
 #quiz-box{
-  background-attachment: fixed;
+  background-attachment: fixed; ;
 }
 #intro-animated {
   background-color: #f9f9ff;
@@ -72,6 +73,27 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+label {
+  font-size: 16px;
+  color:black;
+  display: inline-block;
+  text-align: left;
+}
+
+input, select {
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 5px;
+  width: 100%;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #ff6f61;
 }
 
 button:hover {
@@ -155,7 +177,7 @@ button:hover {
   background-color: #2607b3;
   color: white;
   padding: 12px 24px;
-  margin-top: 20px;
+  margin-top: 5px;
   font-size: 18px;
   border: none;
   border-radius: 8px;
@@ -169,8 +191,7 @@ button:hover {
   background-color: #45a049;
 }
 #result-message {
-  font-size: 24px;
-  margin-top: 20px;
+  font-size: 15px;
   color: #cc1c1c;
   animation: alternate-reverse 1s infinite;
 }

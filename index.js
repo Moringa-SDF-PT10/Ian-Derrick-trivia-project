@@ -2,13 +2,14 @@ let questions = []; // Will store questions from API
 let currentQuestion = 0;
 let score = 0;
 let wrongAnswers = [];
+let originalQuestions = [];
 
 let questionTimeLimit = 20;
 let questionTimeLeft = questionTimeLimit;
 let questionInterval;
 let totalInterval;
 let questionTimerRunning = false;
-
+let btn = document.createElement("button");
 
 
 function startQuiz() {
@@ -27,17 +28,26 @@ function startQuiz() {
     document.getElementById("total-timer").innerText = totalTimer + "s";
   }, 1000);
 
-  fetch("https://opentdb.com/api.php?amount=10&category=9&type=multiple")
+  const questionCount = document.getElementById("question-count").value || 10;
+  const difficulty = document.getElementById("difficulty").value;
+
+  let apiUrl = `https://opentdb.com/api.php?amount=${questionCount}&type=multiple`;
+  if (difficulty) {
+    apiUrl += `&difficulty=${difficulty}`;
+  }
+
+  fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
       questions = data.results;
+      originalQuestions = JSON.parse(JSON.stringify(data.results)); // Deep copy of questions
       showQuestion();
     });
 }
 
 
 function showQuestion() {
-  document.getElementById("restart page").style.display = "none";
+  document.getElementById("restart-page").style.display = "none";
  
   clearInterval(questionInterval);
   questionTimeLeft = questionTimeLimit;
@@ -130,7 +140,7 @@ function showResult() {
   document.getElementById("progress-bar-container").style.display = "none";
   document.getElementById("timer-container").style.display = "block";
   document.getElementById("result-screen").style.display = "block";
-  document.getElementById("restart page").style.display = "none";
+  document.getElementById("restart-page").style.display = "none";
 
   document.getElementById("score").innerText = score + " / " + questions.length;
 
@@ -140,7 +150,7 @@ function showResult() {
   wrongAnswers.forEach((item, index) => {
     let li = document.createElement("li");
     li.innerHTML = `
-      <div style="margin-bottom: 2px; padding: 1px;">
+      <div style="margin-bottom: 2px; padding: 1px; font-size: 14px;">
         <strong>Question:</strong> ${item.question}<br>
         <span style="color: #007BFF;">✅ Correct Answer:</span> <em>${item.correct}</em>
       </div>
@@ -161,9 +171,11 @@ function showResult() {
 
 function restartQuiz() {
   document.getElementById("result-screen").style.display = "none";
-  document.getElementById("restart page").style.display = "block";
-  document.getElementById("timer-container").style.display = "none";
+  document.getElementById("restart-page").style.display = "none";
   document.getElementById("start-screen").style.display = "none";
+  document.getElementById("timer-container").style.display = "none";
+  document.getElementById("question-screen").style.display = "block";
+  document.getElementById("progress-bar-container").style.display = "block";
 
 
   clearInterval(questionInterval);
@@ -175,15 +187,26 @@ function restartQuiz() {
   totalTimer = 0;
   wrongAnswers = [];
 
-  // Reset screens
-  document.getElementById("result-screen").style.display = "none";
-  document.getElementById("start-screen").style.display = "none";
-
   // Reset progress bar and timers
   document.getElementById("progress-bar").style.width = "100%";
   document.getElementById("total-timer").innerText = "0s";
+
+  questions = JSON.parse(JSON.stringify(originalQuestions));
+  showQuestion();
 }
 
+function goToHomePage() {
+  document.getElementById("result-screen").style.display = "none";
+  document.getElementById("restart-page").style.display = "block";
+  document.getElementById("start-screen").style.display = "block";
+  document.getElementById("timer-container").style.display = "none";
+  document.getElementById("question-screen").style.display = "none";
+  document.getElementById("progress-bar-container").style.display = "none";
+  document.getElementById("intro-animated").style.display = "block";
+
+  clearInterval(questionInterval);
+  clearInterval(totalInterval);
+}
 
 // Helper: Randomize order of answers
 function shuffle(array) {
