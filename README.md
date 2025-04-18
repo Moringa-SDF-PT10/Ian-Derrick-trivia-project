@@ -60,6 +60,6 @@ Welcome to **QuizMaster**, a fast-paced and interactive quiz web application whe
 ---
 
 ## 🌐 Live Demo
-[](https://moringa-sdf-pt10.github.io/Ian-Derrick-trivia-project/)
+[live here](https://moringa-sdf-pt10.github.io/Ian-Derrick-trivia-project/)
 
 
